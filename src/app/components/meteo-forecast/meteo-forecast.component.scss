@@ -1,0 +1,21 @@
+.forecast-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.forecast-item{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  min-width: max-content;
+  width: 18%;
+  border: solid 3px crimson;
+  margin: 4px;
+  border-radius: 4px;
+}
+
+.code-icon{
+  width: 30px;
+}

@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>meteo forecast</h2>
+  <div class="forecast-container">
+    <div class="forecast-item" *ngFor="let forecast of forecastArray">
+      <img class="code-icon" src="{{forecast.code | codeIcon}}" alt="">
+      <span>date: {{forecast.date}}</span>
+      <span>temperature: {{forecast.temperature}}</span>
+      <span>humidity: {{forecast.humidity}}</span>
+      <span>wind speed: {{forecast.windSpeed}}</span>
+      <span>wind direction: {{forecast.windDirection}}</span>
+      <span>cloudiness: {{forecast.cloudCover}}</span>
+      <span>precipitation: {{forecast.rain}}</span>
+      <span>pressure: {{forecast.pressure}}</span>
+    </div>
+  </div>
+</div>
