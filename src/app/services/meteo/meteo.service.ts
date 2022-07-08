@@ -1,19 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { HourlyForecast } from '../model/daily-forecast';
+import { HourlyForecast } from 'src/app/model/daily-forecast';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MeteoService {
 
-  private readonly URL = 'https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,relativehumidity_2m,pressure_msl,rain,weathercode,cloudcover,windspeed_10m,winddirection_10m&latitude=41.8955&longitude=12.4823'
+
+
+  private readonly URL = 'https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,relativehumidity_2m,pressure_msl,rain,weathercode,cloudcover,windspeed_10m,winddirection_10m'
 
   constructor(private http: HttpClient) { }
 
-  getMeteoForecast() {
-    return this.http.get<HourlyForecast[]>(this.URL).pipe(
+  getMeteoForecast(lat: string, lng: string) {
+    const url = this.URL + '&latitude=' + lat + '&longitude=' + lng;
+    return this.http.get<HourlyForecast[]>(url).pipe(
       map (data => this.parseMeteoData(data))
     );
   }
@@ -65,6 +69,7 @@ export class MeteoService {
     //   return {date: time, temperature: data.hourly.temperature_2m[index]}
     // });
   }
+
 
 
 }

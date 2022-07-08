@@ -1,0 +1,12 @@
+<div class="container">
+  <input #cityinput type="text">
+  <button (click)="getCities(cityinput.value)">cerca</button>
+  <div class="city-container">
+    <div routerLink="/meteo/{{city.latitude}}@{{city.longitude}}" class="city-card" *ngFor="let city of cities">
+      <span>{{city.name}}</span>
+      <span>{{city.country}}</span>
+      <span>{{city.latitude}}</span>
+      <span>{{city.longitude}}</span>
+    </div>
+  </div>
+</div>
